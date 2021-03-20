@@ -26,19 +26,10 @@ export const Nav = () => {
             },
             {
                   id: 2,
-                  text: 'Artists',
-                  link: 'artists'
-            },
-            {
-                  id: 3,
                   text: 'Contact',
                   link: 'contact'
             },
-            {
-                  id: 4,
-                  text: 'Metamask' ,
-                  link: 'signin'
-            }
+
       ]
 
 
@@ -49,18 +40,12 @@ export const Nav = () => {
 
       return (
             <>
-                  <nav className='flex items-center flex-wrap dark:bg-blue-500 bg-pink-300 p-3 shadow-lg'>
+                  <nav className='flex items-center flex-wrap dark:bg-darkblue-200 bg-lightblue-700 px-12 py-4 shadow-lg'>
                         <Link href='/'>
                               <a className='inline-flex items-center p-2 mr-4 hover:shadow-lg rounded-lg transition duration-500 ease-in-out transform  hover:scale-105  antialiased' >
-                                    <svg
-                                          viewBox='0 0 24 24'
-                                          xmlns='http://www.w3.org/2000/svg'
-                                          className='fill-current text-white h-8 w-8 mr-2'
-                                    >
-                                          <path d='M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z' />
-                                    </svg>
-                                    <span className='text-xl text-white font-bold uppercase tracking-wide'>
-                                          SharpArt
+                           
+                                    <span className='text-3xl text-gray-100 font-bold uppercase tracking-wide'>
+                                          SharpTec
                                     </span>
                               </a>
 
@@ -97,10 +82,10 @@ export const Nav = () => {
                               className={`${active ? '' : 'hidden'
                                     }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
                         >
-                              <div className='g:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto text-gray-100'  >
+                              <div className='g:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'  >
                                     {listItems.map((listItem, index) =>
                                           <Link key={index} href={`/` + listItem.link}>
-                                                <a className=' subpixel-antialiased text-gray-900 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded-lg font-bold items-center justify-center hover:bg-darkblue-500 hover:text-gray-200 hover:shadow-lg  rounded transition duration-500 ease-in-out '>
+                                                <a className=' subpixel-antialiased text-xl text-gray-100 lg:inline-flex lg:w-auto w-full mx-3 px-6 py-4 rounded-lg font-bold items-center justify-center hover:bg-darkblue-500 hover:text-gray-900 hover:shadow-lg  rounded transition duration-500 ease-in-out '>
                                                       {listItem.text}
                                                 </a>
                                           </Link>

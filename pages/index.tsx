@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
-import { useViewportScroll, useMotionValue, useTransform, useElementScroll, motion, MotionValue, } from 'framer-motion'
 import CardGroup from '../components/Cards/CardGroup'
 import { CardProps } from "../interfaces/cards";
 
 export default function Home() {
-  const { scrollYProgress } = useViewportScroll()
-  const scale = useTransform(scrollYProgress, [0, 1], [0.2, 2]);
+
 
   const cardItems: CardProps[] = [
     {
@@ -49,7 +46,7 @@ return (
   return (
     <>
       <Head>
-        <title>SharpArt</title>
+        <title>SharpTec</title>
         <link rel='icon' href='/favicon.ico' />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
@@ -57,15 +54,15 @@ return (
 
 
       <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-darkblue-100">This Is SharpArt</h1>
+        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
       </div>
       <CardGroup items={cardItems} />
       <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-darkblue-100">This Is SharpArt</h1>
-      </div><div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-darkblue-100">This Is SharpArt</h1>
-      </div><div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-darkblue-100">This Is SharpArt</h1>
+        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
+      </div> <div id="div1" className="flex items-center justify-center py-64 px-24">
+        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
+      </div> <div id="div1" className="flex items-center justify-center py-64 px-24">
+        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
       </div>
 
     </>
