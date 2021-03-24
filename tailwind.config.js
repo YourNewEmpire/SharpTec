@@ -44,7 +44,11 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      backgroundImage: theme => ({
+        'the-willy': "url('/head.png')",
+        'footer-texture': "url('/img/footer-texture.png')",
+       })
     }
   },
   variants: {
