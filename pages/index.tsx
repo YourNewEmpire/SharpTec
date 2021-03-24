@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import CardGroup from '../components/Cards/CardGroup'
 import { CardProps } from "../interfaces/cards";
-
+import Image from 'next/image'
 export default function Home() {
 
 
@@ -9,17 +9,17 @@ export default function Home() {
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       header: 'the views',
-      body: 'how beautiful'
+      body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       header: 'the views',
-      body: 'how beautiful'
+      body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
       header: 'the views',
-      body: 'how beautiful'
+      body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
   ]
   /*
@@ -53,16 +53,18 @@ return (
       </Head>
 
 
-      <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
-      </div>
+      <div  className="flex items-center justify-center  h-screen bg-the-willy bg-no-repeat bg-center rounded-lg">
+  
+        <h1 className="text-6xl text-lightblue-900 dark:text-blue-200" >This Is SharpTec</h1>
+     </div>
+
       <CardGroup items={cardItems} />
-      <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
-      </div> <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
-      </div> <div id="div1" className="flex items-center justify-center py-64 px-24">
-        <h1 className="text-6xl text-lightblue-900">This Is SharpTec</h1>
+      <div className="flex items-center justify-center my-64">
+        <h1 className="text-6xl text-lightblue-900  dark:text-blue-200">This Is SharpTec</h1>
+      </div> <div  className="flex items-center justify-center py-64">
+        <h1 className="text-6xl text-lightblue-900 dark:text-blue-200">This Is SharpTec</h1>
+      </div> <div  className="flex items-center justify-center py-64 ">
+        <h1 className="text-6xl text-lightblue-900 dark:text-blue-200">This Is SharpTec</h1>
       </div>
 
     </>

@@ -40,11 +40,11 @@ export const Nav = () => {
 
       return (
             <>
-                  <nav className='flex items-center flex-wrap dark:bg-darkblue-200 bg-lightblue-700 px-12 py-4 shadow-lg'>
+                  <nav className='flex items-center flex-wrap dark:bg-blue-200 bg-lightblue-700 px-12 py-4 shadow-lg'>
                         <Link href='/'>
                               <a className='inline-flex items-center p-2 mr-4 hover:shadow-lg rounded-lg transition duration-500 ease-in-out transform  hover:scale-105  antialiased' >
                            
-                                    <span className='text-3xl text-gray-100 font-bold uppercase tracking-wide'>
+                                    <span className='text-3xl text-blue-200 dark:text-lightblue-900 font-bold uppercase tracking-wide'>
                                           SharpTec
                                     </span>
                               </a>
@@ -85,7 +85,10 @@ export const Nav = () => {
                               <div className='g:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'  >
                                     {listItems.map((listItem, index) =>
                                           <Link key={index} href={`/` + listItem.link}>
-                                                <a className=' subpixel-antialiased text-xl text-gray-100 lg:inline-flex lg:w-auto w-full mx-3 px-6 py-4 rounded-lg font-bold items-center justify-center hover:bg-darkblue-500 hover:text-gray-900 hover:shadow-lg  rounded transition duration-500 ease-in-out '>
+                                                <a className=' subpixel-antialiased  text-xl text-blue-200 dark:text-lightblue-900 lg:inline-flex lg:w-auto w-full 
+                                                mx-3 px-6 py-4 rounded-lg font-bold items-center justify-center 
+                                                  hover:shadow-lg hover:border-b hover:border-blue-200   transition duration-500 ease-in-out 
+                                                '>
                                                       {listItem.text}
                                                 </a>
                                           </Link>
@@ -97,7 +100,12 @@ export const Nav = () => {
             </>
       );
 };
-
+/*
+ <a className=' subpixel-antialiased text-xl text-blue-200 dark:text-lightblue-900 lg:inline-flex lg:w-auto w-full 
+                                                mx-3 px-6 py-4 rounded-lg font-bold items-center justify-center 
+                                                hover:bg-darkblue-500 hover:text-gray-900 hover:shadow-lg  rounded transition duration-500 ease-in-out 
+                                                '>
+*/
 
 export default Nav;
 
