@@ -6,7 +6,7 @@ import {
 } from '../actions/accountActions';
 
 
-const counterReducer = (state = {value: ""}, action) => {
+const accountReducer = (state = {value: ""}, action) => {
       switch (action.type) {
             case ACCOUNTS_STARTED:
                 return {...state};
@@ -19,4 +19,4 @@ const counterReducer = (state = {value: ""}, action) => {
         }
   };
   
-  export default counterReducer;
+  export default accountReducer;

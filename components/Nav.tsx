@@ -22,14 +22,14 @@ export const Nav = () => {
       const listItems: listItem[] = [
             {
                   id: 1,
-                  text: 'Home',
-                  link: ''
-            },
-            {
-                  id: 2,
                   text: 'Contact',
                   link: 'contact'
             },
+            {
+                  id: 2,
+                  text: 'Ether Projects',
+                  link: 'etherprojects'
+            }
 
       ]
       const mMask = () => {
@@ -41,7 +41,7 @@ export const Nav = () => {
             <div className="">
                   <nav className='flex  flex-wrap items-center justify-center dark:bg-blue-200 bg-lightblue-700 md:px-8 py-4 shadow-lg'>
                         <Link href='/'>
-                              <a className=' inline-flex items-center justify-center  md:p-2 p-0 w-0 lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
+                              <a className=' inline-flex items-center justify-center w-0  md:p-2 p-0 mr-4  lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
 
                                     <span className=' lg:text-3xl text-sm text-blue-200 dark:text-lightblue-900 font-bold uppercase tracking-wide'>
                                           SharpTec
@@ -51,9 +51,10 @@ export const Nav = () => {
 
                         {listItems.map((listItem, index) =>
                               <Link key={index} href={`/` + listItem.link}>
-                                    <a className=' subpixel-antialiased text-xs md:text-2xl  md:h-auto inline-flex md:w-auto 
-                                                mx-2 px-2 py-2 font-bold items-center justify-center
-                                                md:mx-4 md:px-6 md:py-4 
+                                    <a className=' subpixel-antialiased text-xs md:text-2xl  
+                                                md:h-auto inline-flex  md:w-auto 
+                                                px-2 py-2 font-bold items-center justify-center
+                                                md:px-6 md:py-4 lg:mx-8 mx-4
                                                 rounded-lg text-blue-200 dark:text-lightblue-900 
                                                 hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110
                                                 '>
@@ -74,7 +75,7 @@ export const Nav = () => {
 
                         </button>
                         <button
-                              className='  items-center lg:h-20 lg:w-20 w-10 h-10  hover:text-blue-300 antialiased focus:outline-none '
+                              className=' mx-2 items-center lg:h-20 lg:w-20 w-5 h-5 hover:text-blue-300 antialiased focus:outline-none '
                               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         >
                               <svg viewBox='0 0 24 24' xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor">
