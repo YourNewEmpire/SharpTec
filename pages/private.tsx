@@ -1,24 +1,34 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { withIronSession } from "next-iron-session";
 
-const PrivatePage = () => {
-  const state = useSelector((state) => state)
-  const address = state.account.value
+const PrivatePage = ({ user }) => (
+  <div>
+    <h1>Hello {user.email}</h1>
+    <p>Secret things live here...</p>
+  </div>
+);
 
+export const getServerSideProps = withIronSession(
+  async ({ req, res }) => {
+    const user = req.session.get("user");
 
-  if (!address) {
-    return <div className="container "> no metamask was account detected, you need to sign in</div>
+    if (!user) {
+      res.statusCode = 404;
+      res.end();
+      return { props: {} };
+    }
+
+    return {
+      props: { user }
+    };
+  },
+  {
+    cookieName: "MYSITECOOKIE",
+    cookieOptions: {
+      secure: process.env.NODE_ENV === "production" ? true : false
+    },
+    password: process.env.APPLICATION_SECRET
   }
-
-  return (
-
-    <div>
-      <h1>Hello {address}</h1>
-      <p>Secret things live here...</p>
-    </div>
-  )
-
-};
-
+);
 
 export default PrivatePage;
