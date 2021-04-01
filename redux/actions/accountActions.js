@@ -58,7 +58,7 @@ export const fetchAccounts = () => async dispatch => {
 
             } catch (err) {
                   dispatch(getAccountsFailed(err.toString()))
-                  toast.error('Metamask undetected', {
+                  toast.error('no account found, try logging in to metamask', {
                         position: "top-right",
                         autoClose: 5000,
                         transition: Slide,
@@ -68,11 +68,12 @@ export const fetchAccounts = () => async dispatch => {
                         draggable: true,
                         progress: undefined,
                   })
+                  return 'failed when trying to req account'
             }
       }
       else {
             dispatch(getAccountsFailed("no metamask wallet detected"))
-            toast.error('Metamask undetected', {
+            toast.error('Metamask undetected on browser', {
                   position: "top-right",
                   autoClose: 5000,
                   transition: Slide,
