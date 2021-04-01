@@ -51,7 +51,7 @@ export default function Home({data}) {
   );
 
 }
-
+/*
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = axios.get(process.env.HOST_PROD + "/api/fetcheth")
 
@@ -59,3 +59,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: data
   }
 }
+*/
