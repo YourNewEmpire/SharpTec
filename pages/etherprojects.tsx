@@ -5,22 +5,30 @@ import Link from 'next/link';
 
 export default function EtherProj({ data }) {
 
-
-
-
       return (
-            <div className="flex flex-col space-y-64">
+            <div className="flex flex-col space-y-64 ">
 
-                  <div className="flex flex-col my-16 space-y-32 items-center justify-center  ">
+                  <div className="flex flex-col my-16 space-y-32 items-center justify-center mx-auto ">
+                              <h1 className=" text-center lg:text-2xl text-lightblue-900 dark:text-blue-200 
+                              
+                               " >
+                                    This service is only available with the MetaMask browser extension
+                               </h1 >
+                               <h1 className=" text-center lg:text-2xl text-lightblue-900 dark:text-blue-200 
+                              
+                              " >
+                                   Click the MetaMask button on the nav bar when you're ready
+                              </h1 >
+                   
                         <Link href="/ethorb">
-                              <a className="lg:text-6xl text-lightblue-900 dark:text-blue-200 
+                              <a className="  text-center lg:text-6xl text-lightblue-900 dark:text-blue-200 
                                hover:shadow-lg rounded-lg transition duration-300 ease-in-out transform  hover:scale-110 
                                " >
                                     Eth Orb - Guess market movements.
                                </a>
                         </Link>
                         <Link href="/ethorb">
-                              <a className="lg:text-6xl text-lightblue-900 dark:text-blue-200  
+                              <a className=" text-center lg:text-6xl text-lightblue-900 dark:text-blue-200  
                               hover:shadow-lg rounded-lg transition duration-300 ease-in-out transform  hover:scale-110
                                " >
                                     Eth Orb - Guess market movements.

@@ -3,7 +3,7 @@ import { withIronSession } from "next-iron-session";
 
 const PrivatePage = ({ user }) => (
   <div>
-    <h1>Hello {user.email}</h1>
+    <h1>Hello {user.account}</h1>
     <p>Secret things live here...</p>
   </div>
 );

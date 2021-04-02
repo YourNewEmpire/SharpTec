@@ -2,8 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 import { fetchAccounts } from '../redux/actions/accountActions';
+import { useRouter } from 'next/router';
 
 
 
@@ -17,7 +18,9 @@ type listItem = {
 export const Nav = () => {
       const [active, setActive] = useState(false);
       const { theme, setTheme } = useTheme()
+      const router = useRouter()
       const dispatch = useDispatch()
+      const account = useSelector((state: RootStateOrAny) => state.account.value)
       //nav items for map
       const listItems: listItem[] = [
             {
@@ -34,14 +37,28 @@ export const Nav = () => {
       ]
       const mMask = () => {
             dispatch(fetchAccounts());
+            handleSubmit()
       };
 
+      const handleSubmit = async () => {
+
+            const response = await fetch("/sessions", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ account })
+            });
+        
+            if (response.ok) {
+              return router.push("/private");
+            }
+          };
+        
 
       return (
             <div className="">
                   <nav className='flex  flex-wrap items-center justify-center dark:bg-blue-200 bg-lightblue-700 md:px-8 py-4 shadow-lg'>
                         <Link href='/'>
-                              <a className=' inline-flex items-center justify-center w-0  md:p-2 p-0 mr-4  lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
+                              <a className=' inline-flex items-center justify-center display-none w-0  md:p-2 p-0 mr-4  lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
 
                                     <span className=' lg:text-3xl text-sm text-blue-200 dark:text-lightblue-900 font-bold uppercase tracking-wide'>
                                           SharpTec
