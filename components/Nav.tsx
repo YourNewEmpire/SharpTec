@@ -37,22 +37,8 @@ export const Nav = () => {
       ]
       const mMask = () => {
             dispatch(fetchAccounts());
-            handleSubmit()
-      };
+       };
 
-      const handleSubmit = async () => {
-
-            const response = await fetch("/sessions", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ account })
-            });
-        
-            if (response.ok) {
-              return router.push("/private");
-            }
-          };
-        
 
       return (
             <div className="">
