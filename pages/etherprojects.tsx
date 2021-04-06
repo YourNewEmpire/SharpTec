@@ -3,7 +3,7 @@ import CardGroup from '../components/Cards/CardGroup';
 
 import Link from 'next/link';
 
-export default function EtherProj({ data }) {
+export default function EtherProj() {
 
       return (
             <div className="flex flex-col space-y-64 ">
