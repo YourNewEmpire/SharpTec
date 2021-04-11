@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes'
-import { useState } from 'react'
-import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
-import { fetchAccounts } from '../redux/actions/accountActions';
-import { useRouter } from 'next/router';
+import { useDispatch, useSelector,} from 'react-redux'
+import { setAccountThunk, selectAccount} from '../lib/slices/accountSlice';
+
 
 
 
@@ -16,11 +15,12 @@ type listItem = {
 
 
 export const Nav = () => {
-      const [active, setActive] = useState(false);
+
       const { theme, setTheme } = useTheme()
-      const router = useRouter()
+
       const dispatch = useDispatch()
-      const account = useSelector((state: RootStateOrAny) => state.account.value)
+      const user = useSelector(selectAccount)
+
       //nav items for map
       const listItems: listItem[] = [
             {
@@ -33,18 +33,25 @@ export const Nav = () => {
                   text: 'Ether Projects',
                   link: 'etherprojects'
             }
-
       ]
       const mMask = () => {
-            dispatch(fetchAccounts());
-       };
-
+            dispatch(setAccountThunk());
+      };
 
       return (
             <div className="">
-                  <nav className='flex  flex-wrap items-center justify-center dark:bg-blue-200 bg-lightblue-700 md:px-8 py-4 shadow-lg'>
+                  <nav className='
+                  flex flex-wrap items-center justify-center 
+                  bg-lightblue-900
+                  dark:bg-blue-200
+                  bg-gradient-to-br
+                  from-lightblue-900
+                  dark:from-blue-200
+                  to-blue-200
+                  dark:to-lightblue-900 
+                  md:px-8 py-4 shadow-lg'>
                         <Link href='/'>
-                              <a className=' inline-flex items-center justify-center display-none w-0  md:p-2 p-0 mr-4  lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
+                              <a className=' inline-flex items-center justify-center display-none w-0  lg:p-2 p-0 mr-4  lg:w-auto invisible lg:visible hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110  antialiased' >
 
                                     <span className=' lg:text-3xl text-sm text-blue-200 dark:text-lightblue-900 font-bold uppercase tracking-wide'>
                                           SharpTec
@@ -58,6 +65,7 @@ export const Nav = () => {
                                                 md:h-auto inline-flex  md:w-auto 
                                                 px-2 py-2 font-bold items-center justify-center
                                                 md:px-6 md:py-4 lg:mx-8 mx-4
+                                                focus:outline-none 
                                                 rounded-lg text-blue-200 dark:text-lightblue-900 
                                                 hover:shadow-lg rounded-lg transition duration-100 ease-in-out transform  hover:scale-110
                                                 '>
@@ -74,7 +82,7 @@ export const Nav = () => {
                               focus:outline-none '
                               onClick={mMask}
                         >
-                           Metamask
+                              Metamask
 
                         </button>
                         <button

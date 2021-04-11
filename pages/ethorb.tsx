@@ -1,81 +1,75 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, SetStateAction } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Web3 from 'web3';
-import { abi} from '../public/GameItem.json'
-
-//@ts-ignore
-async function fetchURIs(user: string){
-       
-      let usersURIs = []
-      let i: number = 0
-      const provider = new Web3.providers.HttpProvider(
-         '  https://rpc-mumbai.maticvigil.com/v1/f7178baf2319f5704d765be9c095e1b9c94ceb1f'
-          );
-      const web3 =  new Web3(provider)
-
-      const nftContract = new web3.eth.Contract(
- //@ts-ignore
-           abi,
-            "0xf79349d03E0A2BfFD5Ea27B512D51Bd84289E72A",
-      );
-      async function pushURIs(total) {
-            for (i = 1; i <= total; i++) {
-                  await nftContract.methods.ownerOf(i).call().then(res => {
-                        if (res == user) {
-                              usersURIs.push(`https://contract-abis.herokuapp.com/api/token/${i}`)
-                              console.log(usersURIs)
-                        }
-                        else {
-                              console.log("user is empty")
-                        }
-                  }
-                  )
-            }
-      };
-
-
-      await nftContract.methods
-            .totalSupply()
-            .call().then(res => pushURIs(res))
-            .catch(error => console.log(error));
-
-            return usersURIs
-}
+import axios from 'axios';
+import Web3 from 'web3'
+import SimpleCard from '../components/Cards/SimpleCard';
+import AlertCard from '../components/Cards/AlertCard'
+import NftList from '../components/Cards/NftCard';
+import {
+      selectAccount,
+      selectUris,
+      setUrisThunk,
+      setAccount
+} from '../lib/slices/accountSlice';
+import {
+      selectPrice,
+      setPriceThunk
+} from '../lib/slices/ethpriceSlice'
 
 export default function EthOrb() {
       //@ts-ignore
-      const state = useSelector((state) => state.account.value)
-      const [uriList, setUris] = useState<string[]>([])
-      const dispatch = useDispatch()
+      const user = useSelector(selectAccount)
+      console.log(user)
+      const tokens = useSelector(selectUris)
+      const eth = useSelector(selectPrice)
+      const dispatch = useDispatch();
 
-      const [eth, setEth] = useState(0)
+      const goingUp = async (): Promise<void> => {
+            const res = await axios.post('/api/goingUp.js')
+      };
+
+      useEffect(() => {
+            dispatch(setUrisThunk(user))
+            console.log('urithunk')
+      }, [user])
+
       useEffect(() => {
             const id = setInterval(async () => {
-                  const coinData = await axios.get('https://api.coingecko.com/api/v3/coins/ethereum?market_data=true');
-                  const price = coinData.data.market_data.current_price.usd;
-                  setEth(price)
+                  dispatch(setPriceThunk())
             }, 3000);
             return () => clearInterval(id);
       }, [eth])
-      useEffect(() => {
-            fetchURIs(state).then(URIs => setUris(URIs) )
-            return () => {
-          
-            }
-      }, [])
-      return (
-            <div className="flex flex-col space-y-64">
 
-                  <div className="flex items-center justify-center ">
-                        <h1>{eth}</h1>
-                        <p className="text-pink-500">{uriList}</p>
+      useEffect(() => {
+        async function listenMMAccount() {
+          //@ts-ignore
+          const web3 = new Web3(window.ethereum);
+          //@ts-ignore
+          window.ethereum.on("accountsChanged", async function () {
+            const accounts = await web3.eth.getAccounts();
+            console.log(accounts, "account changed");
+            dispatch(setAccount(accounts[0]))
+          });
+        }
+        listenMMAccount();
+      }, []);
+
+
+      if (!user) return (
+
+            <div className="flex items-center justify-center ">
+                  <AlertCard title="Whoa There!" body="You require metamask to use these decentralised applications" color="red" />
+
+            </div>
+      )
+      else return (
+            <div className="grid grid-cols-1 lg:grid-cols-2 grid-flow-row lg:gap-8 py-4">
+                  <div className="">
+                        <SimpleCard title="Welcome" body={user} />
+                        <p className="text-gray-400">Price of ETH in USD is ${eth}</p >
                   </div>
 
-
-
-
-
+                  <NftList items={tokens} />
             </div>
       );
 

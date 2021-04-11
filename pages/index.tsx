@@ -8,17 +8,17 @@ export default function Home({data}) {
   const cardItems: CardProps[] = [
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      header: 'the views',
+      title: 'the views',
       body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      header: 'the views',
+      title: 'the views',
       body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
     {
       img: 'https://images.unsplash.com/photo-1476041026529-411f6ae1de3e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8b3V0ZG9vcnN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      header: 'the views',
+      title: 'the views',
       body: 'how beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautifulhow beautiful'
     },
   ]

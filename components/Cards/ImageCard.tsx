@@ -1,9 +1,7 @@
 import React from 'react'
-import { Childs } from '../../interfaces/childs'
-import Image from 'next/image'
 import { CardProps } from '../../interfaces/cards'
 
-export default function Card({ img, header, body }: CardProps): JSX.Element {
+export default function Card({ img, title, body }: CardProps): JSX.Element {
       return (
             <div className=" 
             grid grid-cols-2
@@ -25,7 +23,7 @@ export default function Card({ img, header, body }: CardProps): JSX.Element {
                   <div className="">
                         <div className=" py-4" >
                               <p className=" text-6xl text-lightblue-900 dark:text-blue-200">
-                                    {header}
+                                    {title}
                               </p>
                         </div>
                         <div className=" py-4"  >

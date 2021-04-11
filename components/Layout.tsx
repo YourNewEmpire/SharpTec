@@ -10,7 +10,7 @@ interface Props {
 export default function Layout({ children }: Props): JSX.Element {
 
       return (
-            <div className="bg-blue-200 dark:bg-lightblue-900 min-h-full">
+            <div className="dark:bg-lightblue-900 bg-blue-200 min-h-full">
                   <Head>
                         <title>SharpTec</title>
                         <link rel='icon' href='/favicon.ico' />
@@ -18,7 +18,7 @@ export default function Layout({ children }: Props): JSX.Element {
                         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
                   </Head>
                   <Nav />
-                  <div className="mx-auto darkblue justify-center sm:mx-20 lg:mx-20" >
+                  <div className="lg:mx-20 sm:mx-6 mx-4  justify-center items-center" >
                         {children}
                   </div>
             </div>

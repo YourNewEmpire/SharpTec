@@ -1,0 +1,28 @@
+
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+      --background: theme('colors.blue.200');
+      --background-secondary: theme('colors.lightBlue.900');
+    
+      --primary-dark: theme('colors.gray.900');
+      --primary-medium: theme('colors.gray.700');
+      --primary-light: theme('colors.gray.500');
+    }
+    
+    [data-theme='dark'] {
+      --background: theme('colors.lightblue.900');
+      --background-secondary: theme('colors.blue.200');
+    
+      --accent-dark: theme('colors.fuchsia.900');
+      --accent-medium: theme('colors.fuchsia.700');
+      --accent-light: theme('colors.fuchsia.500');
+    
+      --primary-dark: theme('colors.gray.300');
+      --primary-medium: theme('colors.gray.200');
+      --primary-light: theme('colors.gray.100');
+    }
+  */
